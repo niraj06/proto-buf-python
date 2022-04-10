@@ -1,0 +1,17 @@
+syntax = "proto3";
+// python -m grpc_tools.protoc -I./src/proto/interfaces ./src/proto/interfaces/customer_info.proto --python_out=./src/proto/generated/ --grpc_python_out=./src/proto/generated
+package customer;
+
+enum Gender {
+    MALE = 0;
+    FEMALE = 1;
+    OTHER  = 2;
+}
+
+message CustomerInfo {
+    int32 customer_id = 1;
+    int32 age = 2;
+    Gender gender = 3;
+    string city = 4;
+    int32 pincode = 5;
+}

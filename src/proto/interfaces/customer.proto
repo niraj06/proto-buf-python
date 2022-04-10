@@ -1,0 +1,16 @@
+syntax = "proto3";
+//python -m grpc_tools.protoc -I./src/proto/interfaces ./src/proto/interfaces/customer.proto --python_out=./src/proto/generated/ --grpc_python_out=./src/proto/generated
+import "customer_info.proto";
+
+package customer;
+
+service CustomerDetails {
+    rpc get_customer(Customer) returns (Reply) {}
+}
+message Customer {
+    int32 customer_id = 1;
+}
+
+message Reply {
+    CustomerInfo info = 1;
+}
